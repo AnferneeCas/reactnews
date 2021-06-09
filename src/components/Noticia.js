@@ -1,33 +1,38 @@
-import React from 'react';
+import React from "react";
 
 const Noticia = (props) => {
-    //extraer los datos
-    const {urlToImage, url, title, description, source}= props.noticia;
+  //extraer los datos
+  const { image, url, title, description, source } = props.noticia;
 
-    //condicionalmente carga imagen si disponible
+  //condicionalmente carga imagen si disponible
 
-    const imagen = (urlToImage)? 
+  const imagen = image ? (
     <div className="card-image">
-        <img src={urlToImage} alt={title}/>
-        <span className="card-title">{source.name}</span>
+      <img src={image} alt={title} />
+      <span className="card-title">{source.name}</span>
     </div>
-    : null;
-    return (
-        <div className="col s12 m6 l4" >
-            <div className="card">   
-            {imagen}
-                <div className="card-content">
-                    <h3>{title}</h3>
-                    <p>{description}</p> 
-                </div>
-                <div className="card-action">
-                    <a href={url} target="_blank" rel="noopener noreferrer" className="waves-effect waves-light btn">
-                            Ver Noticia Completa
-                    </a>
-                </div>
-            </div>
+  ) : null;
+  return (
+    <div className="col s12 m6 l4">
+      <div className="card">
+        {imagen}
+        <div className="card-content">
+          <h3>{title}</h3>
+          <p>{description}</p>
         </div>
-    );
+        <div className="card-action">
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="waves-effect waves-light btn"
+          >
+            See Article
+          </a>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Noticia;
